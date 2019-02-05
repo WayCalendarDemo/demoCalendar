@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+
+<html ng-app="calendarApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+		<title text="">Project</title>
+		<link rel="stylesheet" type="text/css" href="/shared/css/calendar.min.css" media="all">
+		<link rel="shortcut icon" href="/favicon.ico">
+	</head>
+	<!-- CalendarController controls all within calendarMain -->
+	<body ng-controller="calendarMain">
+		<div class="wrapper">
+			<main>
+				<span class="ownership">Way's Calendar Demo</span>
+				<!-- The calendar directive controls all inside the #calendarBody only -->
+		    <calendar id="calendarBody" selected="day"></calendar>
+			</main>
+			<aside class="weather-container">
+				<div class="weather-image {{weather | lowercase}}"></div>
+				<section class="weather-today">
+					<h3 class="weather-title">Osaka</h3>
+					<span class="date">{{today.format('Y年M月D日 ')}}({{japaneseDay}})</span>
+					<span class="temp">{{temp}}<span class="celcius">&#8451;</span></span>
+					<span class="weatherToday">{{weather}}</span>
+					<!-- <span class="weatherMaxMin">{{tempMin}}<span class="celcius">&#8451;</span> / {{tempMax}}<span class="celcius">&#8451;</span></span> -->
+					<div class="weather-icon-container">
+						<span class="weather-icon {{weather | lowercase}}"></span>
+					</div>
+					<div class="forecast-container">
+						<div class="forecast-item tomorrow">
+							<div class="forecast {{weatherTomorrow | lowercase}}">
+							</div>
+						</div>
+						<div class="forecast-item day-after-tomorrow">
+							<div class="forecast  {{weatherDayAfterTomorrow | lowercase}}">
+							</div>
+						</div>
+					</div>
+				</section>
+			</aside>
+
+		</div>
+		<script src="https://cdn.rawgit.com/osamutake/japanese-holidays-js/v1.0.6/lib/japanese-holidays.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+		<!-- Modules -->
+		<script src="/shared/js/app.js"></script>
+		<!-- Controllers -->
+		<script src="/shared/js/controllers/CalendarController.js"></script>
+		<!-- Directivesz -->
+		<script src="/shared/js/directives/calendarDirective.js"></script>
+		<!-- Services -->
+		<script src="/shared/js/services/forecast.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="header">
+    <span class="calendar-subheading">{{month.format("YYYY年")}}</span>
+    <h1 class="calendar-heading">{{month.format("M月")}}</h1>
+    <div class="date-management">
+      <span class="previous-btn" ng-click="previous()"><img src="/shared/img/left-arrowhead.svg" />先月</span>
+      <span class="current-btn" ng-click="current()">今日</span>
+      <span class="next-btn" ng-click="next()">翌月<img src="/shared/img/right-arrowhead.svg" /></span>
+    </div>
+    <!-- <span>{{today}}</span> -->
+</div>
+<div class="week names">
+    <span class="day">日</span>
+    <span class="day">月</span>
+    <span class="day">火</span>
+    <span class="day">水</span>
+    <span class="day">木</span>
+    <span class="day">金</span>
+    <span class="day">土</span>
+</div>
+<div class="week dates" ng-repeat="week in weeks">
+    <span class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, holiday: day.isHoliday ,selected: day.date.isSame(selected), showHolday: hover }" ng-mouseover="showHoliday(day)" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="day in week.days"><span class="day-number">{{day.number}}</span></span>
+</div>

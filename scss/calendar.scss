@@ -1,0 +1,274 @@
+$brand-color: red;
+$base-color: #3e454d;
+$font-color-contrast: #8896a3;
+
+$saturday-color: #79a6cc;
+$holiday-color: #ef8686;
+
+body {
+	margin: 0;
+	padding: 0;
+	color: $base-color;
+}
+
+.wrapper {
+	margin: 0 auto;
+	display: flex;
+	max-width: 1300px;
+}
+
+main {
+	flex-grow: 1;
+	flex-basis: 0;
+	background-color: #f3f3f3;
+}
+aside {
+	flex: 0 0 260px;
+	background-color: $base-color;
+	color: #fff;
+}
+.ownership {
+	margin-left: 15px;
+	font-size: 10px;
+	line-height: 10px;
+}
+.weather-container {
+	padding: 15px;
+	position: relative;
+	.weather-image {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: .8;
+		&.cloudy {
+			background-image: url(/shared/img/weather-images/cloudy.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/cloudy@2x.jpg);
+			}
+		}
+		&.clear {
+			background-image: url(/shared/img/weather-images/clear.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/clear@2x.jpg);
+			}
+		}
+		&.disaster {
+			background-image: url(/shared/img/weather-images/disaster.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/disaster@2x.jpg);
+			}
+		}
+		&.snowy {
+			background-image: url(/shared/img/weather-images/snow.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/snow@2x.jpg);
+			}
+		}
+		&.rainy {
+			background-image: url(/shared/img/weather-images/rain.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/rain@2x.jpg);
+			}
+		}
+		&.drizzly {
+			background-image: url(/shared/img/weather-images/drizzle.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/drizzle@2x.jpg);
+			}
+		}
+		&.thunderstorms {
+			background-image: url(/shared/img/weather-images/thunderstorm.jpg);
+			@media (-webkit-min-device-pixel-ratio: 2) {
+				background-image: url(/shared/img/weather-images/thunderstorm@2x.jpg);
+			}
+		}
+	}
+	.weather-today {
+		color: #fff;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		.weather-title {
+			margin: 26px 0 0;
+			font-size: 40px;
+		}
+		.date {
+			display: block;
+			font-size: 13px;
+		}
+		.temp {
+			padding: 0 30px 20px;
+			border-bottom: 1px dashed #fff;
+			font-size: 60px;
+			font-weight: bold;
+		}
+		.weatherToday {
+			margin-top: 25px;
+			display: block;
+		}
+		.weatherMaxMin {
+			margin-top: 5px;
+			display: block;
+		}
+		.celcius {
+			font-size: 35%;
+			vertical-align: text-top;
+		}
+	}
+	.weather-icon-container {
+		margin: 3rem 0;
+	}
+	.forecast-container {
+		display: flex;
+		.forecast-item {
+			flex-basis: 0;
+			flex-grow: 1;
+			.forecast {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+	.weather-icon,
+	.forecast {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-position: center;
+		&.cloudy {
+			background-image: url(/shared/img/weather-icons/cloudy.svg);
+		}
+		&.clear {
+			background-image: url(/shared/img/weather-icons/clear.svg);
+		}
+		&.disaster {
+			background-image: url(/shared/img/weather-icons/disaster.svg);
+		}
+		&.snowy {
+			background-image: url(/shared/img/weather-icons/snowy.svg);
+		}
+		&.rainy {
+			background-image: url(/shared/img/weather-icons/rainy.svg);
+		}
+		&.drizzly {
+			background-image: url(/shared/img/weather-icons/drizzly.svg);
+		}
+		&.thunderstorm {
+			background-image: url(/shared/img/weather-icons/thunderstorm.svg);
+		}
+	}
+}
+
+.showDate {
+
+}
+
+.showHoliday {
+	color: blue;
+}
+
+#calendarBody {
+	.header {
+		text-align: center;
+		.calendar-heading {
+			margin: 0;
+		}
+		.calendar-subheading {
+			margin: 0;
+			font-size: 12px;
+			font-weight: bold;
+			display: block;
+		}
+		.date-management {
+			margin-bottom: 40px;
+			.current-btn {
+				margin: 0 14px;
+				font-size: 18px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.previous-btn,
+			.next-btn {
+				cursor: pointer;
+				img {
+					width: 14px;
+				}
+			}
+			.previous-btn {
+				img {
+					margin-right: 5px;
+				}
+			}
+			.next-btn {
+				img {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+	.week {
+		margin-bottom: 25px;
+		display: flex;
+		.day {
+			flex-grow: 1;
+			flex-basis: 0;
+			text-align: center;
+		}
+	}
+	// calendar-days of the week
+	.names {
+		span {
+			margin: 10px;
+			display: inline-block;
+			font-weight: bold;
+		}
+	}
+	// calendar-dates
+	.dates {
+		position: relative;
+		.day {
+			min-height: 30px;
+			text-align: center;
+			.day-number {
+				display: inline-block;
+			}
+			&:first-child {
+				.day-number {
+					color: $holiday-color;
+				}
+			}
+			&:last-child {
+				.day-number {
+					color: $saturday-color;
+				}
+			}
+		}
+		.different-month {
+			.day-number {
+				color: #ccc !important;
+			}
+		}
+		.today {
+			.day-number {
+				padding: 10px 6px;
+				width: 21px;
+				height: 11px;
+				line-height: 10px;
+				background-color: $brand-color;
+				color: #fff;
+				border-radius: 100%;
+			}
+		}
+		.holiday {
+			.day-number {
+				color: $holiday-color;
+			}
+		}
+	}
+}
